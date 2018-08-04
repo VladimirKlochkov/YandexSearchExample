@@ -1,9 +1,7 @@
 package org.selenide.examples.cucumber;
 
-import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 
 /**
@@ -19,14 +17,9 @@ import org.junit.runner.RunWith;
         format = {"pretty", "html:target/site/cucumber-pretty", "json:target/cucumber.json"},
         plugin = {"json:target/cucumber.json"})
 
-public class RunTest {
+public class RunTest
+{
   //====================================================================================================================
   //     Этот класс всегда должен быть пустым !
   //====================================================================================================================
-
-  @Before
-  public void setUp() {
-    Configuration.startMaximized = true;
-    Configuration.reportsFolder = "target/surefire-reports";
-  }
 }
