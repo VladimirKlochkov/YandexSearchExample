@@ -4,9 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.and;
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -35,6 +33,11 @@ public class YandexMainPage
     /*******************************************************************************************************************
      * Методы страницы.
      ******************************************************************************************************************/
+    /**
+     * Открывает главную страницу Яндекса.
+     * @param url адрес страницы
+     * @return главную страницу Яндекса
+     */
     public YandexMainPage openYandexMainPage(String url)
     {
         String fullUrl = String.format("https://%s", url);
