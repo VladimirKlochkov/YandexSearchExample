@@ -2,8 +2,7 @@ package ru.StepDefinitions;
 
 
 import cucumber.api.java.en.Given;
-
-import static com.codeborne.selenide.Selenide.open;
+import ru.PageObjects.YandexMainPage;
 
 /**
  * Класс описывающий шаги теста по поиску электричек с помощью соответствующего сервиса Яндекса.
@@ -15,6 +14,7 @@ public class YandexTextSearchStepDefinitions
   /*******************************************************************************************************************
    * Поля класса.
    ******************************************************************************************************************/
+  private YandexMainPage yandexMainPage = new YandexMainPage();
 
   /*******************************************************************************************************************
    * Методы класса.
@@ -22,6 +22,6 @@ public class YandexTextSearchStepDefinitions
   @Given("^Пользователь открывает страницу \"([^\"]*)\"$")
   public void userOpensPageByUrl(String url)
   {
-      open(url);
+      yandexMainPage.openYandexMainPage(url);
   }
 }
