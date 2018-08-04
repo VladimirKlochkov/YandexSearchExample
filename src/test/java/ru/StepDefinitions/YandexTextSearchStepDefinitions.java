@@ -2,7 +2,10 @@ package ru.StepDefinitions;
 
 
 import cucumber.api.java.en.Given;
+import org.junit.Assert;
 import ru.PageObjects.YandexMainPage;
+
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
  * Класс описывающий шаги теста по поиску электричек с помощью соответствующего сервиса Яндекса.
@@ -23,5 +26,6 @@ public class YandexTextSearchStepDefinitions
   public void userOpensPageByUrl(String url)
   {
       yandexMainPage.openYandexMainPage(url);
+      Assert.assertTrue("Требуемая страница не открылась", url().contains(url));
   }
 }
