@@ -1,6 +1,6 @@
-Feature: Yandex text search
+Feature: Поиск электричек
 
-  Scenario: user can search any keyword
+  Scenario: Пользователь осуществляет поиск электричек с помощью соответствующего сервиса Яндекса
 
     Given an open browser with google.com
     When a keyword selenide is entered in input field
