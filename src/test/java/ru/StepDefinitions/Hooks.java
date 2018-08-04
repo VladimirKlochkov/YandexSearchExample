@@ -1,11 +1,11 @@
 package ru.StepDefinitions;
 
 import com.codeborne.selenide.WebDriverRunner;
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.junit.Assert;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
@@ -19,6 +19,7 @@ import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Configuration.timeout;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
  * Код, который будет выполняться до и после каждого сценария.
@@ -106,8 +107,25 @@ public class Hooks
      * Код, который будет выполняться после каждого сценария.
      * Встраиваем скриншот в тестовый отчет, если тест завершен аварийно.
      */
-    public void closeBrowser()
+    public void closeBrowser(Scenario scenario)
     {
+        // Делаем скриншот в случае аварийного завершения теста
+        if (scenario.isFailed())
+        {
+            System.out.println("[ИНФОРМАЦИЯ]: безусловное сохранение скриншота приложения.");
+            try
+            {
+                scenario.write("[ИНФОРМАЦИЯ]: current Page URL is: " + url());
+                byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                scenario.embed(screenshot, "image/png");
+            }
+            catch (WebDriverException somePlatformsDontSupportScreenshots)
+            {
+                System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+            }
+            System.out.println("[ИНФОРМАЦИЯ]: скриншот экрана приложения добавлен в отчёт.");
+        }
+
         // Закрываем браузер в любом случае (нормальное или аварийное завершение теста)
         driver.quit();
     }
