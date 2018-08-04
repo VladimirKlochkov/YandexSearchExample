@@ -29,7 +29,6 @@ public class YandexTextSearchStepDefinitions
       String url = "https://yandex.ru";
 
       yandexMainPage.openYandexMainPage(url);
-      Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(url));
   }
 
   @When("^Пользователь переходит на страницу сервиса 'Яндекс Расписания'$")
