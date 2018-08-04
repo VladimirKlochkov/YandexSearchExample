@@ -1,4 +1,4 @@
-package org.selenide.examples.cucumber;
+package ru.StepDefinitions;
 
 import com.codeborne.selenide.Configuration;
 import cucumber.api.java.en.Given;
