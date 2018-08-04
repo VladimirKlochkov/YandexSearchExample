@@ -1,10 +1,6 @@
 package ru.StepDefinitions;
 
-import Helpers.CertificateGenerator;
-import Helpers.ConfigContainer;
-import Helpers.Screenshoter;
 import com.codeborne.selenide.WebDriverRunner;
-import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.junit.Assert;
@@ -18,9 +14,11 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
+
 import static com.codeborne.selenide.Configuration.timeout;
 
 /**
@@ -109,28 +107,8 @@ public class Hooks
      * Код, который будет выполняться после каждого сценария.
      * Встраиваем скриншот в тестовый отчет, если тест завершен аварийно.
      */
-    public void embedScreenshot(Scenario scenario)
+    public void embedScreenshot()
     {
-        //--------------------------------------------------------------------------------------------------------------
-        // Сохраняем ссылку на экземпляр класса Scenario (Сucumber JVM Scenario object)
-        ConfigContainer.getInstance().setScenario(scenario);
-        //--------------------------------------------------------------------------------------------------------------
-        // Делаем скриншот в случае аварийного завершения теста
-        if (scenario.isFailed()) screenshoter.takeScreenshot();
-
-        // Если тип теста - аккредитация нового пользователя, то удаляем сгенерированный для него сертификат из Windows
-        String testType = ConfigContainer.getInstance().getParameter("TestType");
-        if (testType != null && testType.equals("Accreditation"))
-        {
-            String certificateName = ConfigContainer.getInstance().getParameter("CertificateName");
-            System.out.println("[ИНФОРМАЦИЯ]: удаляю сертификат из системы. " +
-                    "[ Имя сертификата: " + certificateName + "]");
-            CertificateGenerator.getInstance().deleteCertificate(certificateName);
-        }
-
-        // Печатаем список использованных в текущем тесте параметров
-        ConfigContainer.getInstance().printParameters();
-
         // Закрываем браузер в любом случае (нормальное или аварийное завершение теста)
         driver.quit();
     }
