@@ -2,6 +2,7 @@ package ru.StepDefinitions;
 
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import ru.PageObjects.YandexMainPage;
 
@@ -23,11 +24,17 @@ public class YandexTextSearchStepDefinitions
    * Методы класса.
    ******************************************************************************************************************/
   @Given("^Пользователь открывает страницу 'yandex.ru'$")
-  public void userOpensPageByUrl()
+  public void userOpensYandexMainPage()
   {
       String url = "https://yandex.ru";
 
       yandexMainPage.openYandexMainPage(url);
       Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(url));
+  }
+
+  @When("^Пользователь переходит на страницу сервиса 'Яндекс Расписания'$")
+    public void userGoesToYandexTimetablesPage()
+  {
+
   }
 }
