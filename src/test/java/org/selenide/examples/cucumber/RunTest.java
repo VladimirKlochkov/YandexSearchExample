@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
  * Updated by Vladimir V. Klochkov on 04.08.2018.
  */
 
-
 @RunWith(Cucumber.class)
 @CucumberOptions(
         strict = false,
