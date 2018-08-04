@@ -22,10 +22,12 @@ public class YandexTextSearchStepDefinitions
   /*******************************************************************************************************************
    * Методы класса.
    ******************************************************************************************************************/
-  @Given("^Пользователь открывает страницу \"([^\"]*)\"$")
-  public void userOpensPageByUrl(String url)
+  @Given("^Пользователь открывает страницу 'yandex.ru'$")
+  public void userOpensPageByUrl()
   {
+      String url = "https://yandex.ru";
+
       yandexMainPage.openYandexMainPage(url);
-      Assert.assertTrue("Требуемая страница не открылась", url().contains(url));
+      Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(url));
   }
 }

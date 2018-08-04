@@ -40,8 +40,7 @@ public class YandexMainPage
      */
     public YandexMainPage openYandexMainPage(String url)
     {
-        String fullUrl = String.format("https://%s", url);
-        open(fullUrl);
+        open(url);
         yandexMainSearchString.waitUntil(clickable, timeout, polling);
 
         return this;
