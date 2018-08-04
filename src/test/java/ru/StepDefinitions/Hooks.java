@@ -17,7 +17,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
-
 import static com.codeborne.selenide.Configuration.timeout;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
