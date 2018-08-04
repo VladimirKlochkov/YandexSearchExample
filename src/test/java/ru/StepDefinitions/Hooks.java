@@ -14,7 +14,6 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
@@ -107,7 +106,7 @@ public class Hooks
      * Код, который будет выполняться после каждого сценария.
      * Встраиваем скриншот в тестовый отчет, если тест завершен аварийно.
      */
-    public void embedScreenshot()
+    public void closeBrowser()
     {
         // Закрываем браузер в любом случае (нормальное или аварийное завершение теста)
         driver.quit();
