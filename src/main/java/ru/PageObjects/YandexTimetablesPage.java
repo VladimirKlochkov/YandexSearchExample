@@ -57,9 +57,13 @@ public class YandexTimetablesPage extends YandexMainPage
      */
     public void searchForTimeTable(String from, String to, String when)
     {
-        fromName.waitUntil(clickable, timeout, polling).sendKeys(from);
-        toName.waitUntil(clickable, timeout, polling).sendKeys(to);
-        date.waitUntil(exist, timeout, polling).sendKeys(when);
+        fromName.waitUntil(clickable, timeout, polling).click();
+        fromName.clear();
+        fromName.sendKeys(from);
+        toName.waitUntil(clickable, timeout, polling).click();
+        toName.clear();
+        toName.sendKeys(to);
+        date.waitUntil(exist, timeout, polling).setValue(when);
         searchButton.waitUntil(clickable, timeout, polling).click();
     }
 }
