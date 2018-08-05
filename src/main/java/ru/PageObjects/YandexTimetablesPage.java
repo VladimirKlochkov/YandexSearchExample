@@ -1,15 +1,15 @@
 package ru.PageObjects;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Hashtable;
+
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Класс для работы со страницей сервиса 'Яндекс Расписания' (https://rasp.yandex.ru/).
@@ -36,9 +36,9 @@ public class YandexTimetablesPage extends YandexMainPage
     // Пиктограмма открытия календаря для поля [Когда]
     private SelenideElement datePickerSearchIcon = $(By.xpath("//label[@class='datepicker_search__icon']"));
     //------------------------------------------------------------------------------------------------------------------
-    // Дни в календаре, являющиеся выходными днями в конце недели
-    private ElementsCollection calendarDays =
-            $$(By.xpath("//div[@class='calendar__day' or @class='calendar__day _weekend']"));
+    // Шаблон для поиска дня недели в открытом календаре по дате
+    private String calendarDay =
+            "//div[(@class='calendar__day' or @class='calendar__day _weekend') and @data-date='%s']";
     //------------------------------------------------------------------------------------------------------------------
     // Кнопка [Найти]
     private SelenideElement searchButton =
