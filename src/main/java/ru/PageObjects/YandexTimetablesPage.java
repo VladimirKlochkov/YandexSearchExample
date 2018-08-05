@@ -2,7 +2,6 @@ package ru.PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
 
 /**
@@ -16,7 +15,7 @@ public class YandexTimetablesPage extends YandexMainPage
      * Локаторы элементов страницы.
      ******************************************************************************************************************/
     //------------------------------------------------------------------------------------------------------------------
-    // Позиция перключателя [Электричка]
+    // Позиция переключателя [Электричка]
     private SelenideElement electricTrain =
             $(By.xpath("//div[@class='header__transport-selector']//label[contains(., 'Электричка')]"));
     //------------------------------------------------------------------------------------------------------------------
@@ -42,6 +41,10 @@ public class YandexTimetablesPage extends YandexMainPage
     /*******************************************************************************************************************
      * Методы страницы.
      ******************************************************************************************************************/
+    /**
+     * Переключает режим поиска в положение 'Электричка'.
+     * @return страница сервиса 'Яндекс Расписания'
+     */
     public YandexTimetablesPage switchToElectricTrain()
     {
         electricTrain.waitUntil(clickable, timeout, polling).click();
