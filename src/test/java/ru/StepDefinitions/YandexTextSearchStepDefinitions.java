@@ -35,6 +35,7 @@ public class YandexTextSearchStepDefinitions
   @When("^Пользователь переходит на страницу сервиса 'Яндекс Расписания'$")
     public void userGoesToYandexTimetablesPage()
   {
-
+    yandexMainPage.goToYandexTimetablesPage();
+    //------------------------------------------------------------------------------------------------------------------
   }
 }

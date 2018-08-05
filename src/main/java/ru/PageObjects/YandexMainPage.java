@@ -21,6 +21,14 @@ public class YandexMainPage
     // Строка для текстового поиска на главной странице Яндекса
     private static final SelenideElement yandexMainSearchString = $(By.id("text"));
     //------------------------------------------------------------------------------------------------------------------
+    // ссылка [ещё] на главной странице Яндекса
+    private static final SelenideElement moreLink =
+            $(By.xpath("//a[@href='https://yandex.ru/all' and contains(., 'ещё')]"));
+    //------------------------------------------------------------------------------------------------------------------
+    // ссылка [Расписания] во всплывающем окне после нажатия на ссылку [ещё]
+    private static final SelenideElement timetablesLink =
+            $(By.xpath("//div[@class='popup__content']//a[contains(., 'Расписания')]"));
+    //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
      * Поля страницы.
@@ -40,5 +48,15 @@ public class YandexMainPage
     {
         open(url);
         yandexMainSearchString.waitUntil(clickable, timeout, polling);
+    }
+
+    /**
+     *  Осуществляет переход на страницу сервиса 'Яндекс Расписания'.
+     */
+    public void goToYandexTimetablesPage()
+    {
+        moreLink.waitUntil(clickable, timeout, polling).click();
+        timetablesLink.waitUntil(clickable, timeout, polling).hover();
+        timetablesLink.click();
     }
 }
