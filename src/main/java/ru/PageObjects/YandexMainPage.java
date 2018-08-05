@@ -19,14 +19,14 @@ public class YandexMainPage
      ******************************************************************************************************************/
     //------------------------------------------------------------------------------------------------------------------
     // Строка для текстового поиска на главной странице Яндекса
-    private static final SelenideElement yandexMainSearchString = $(By.id("text"));
+    private SelenideElement yandexMainSearchString = $(By.id("text"));
     //------------------------------------------------------------------------------------------------------------------
     // ссылка [ещё] на главной странице Яндекса
-    private static final SelenideElement moreLink =
+    private SelenideElement moreLink =
             $(By.xpath("//a[@href='https://yandex.ru/all' and contains(., 'ещё')]"));
     //------------------------------------------------------------------------------------------------------------------
     // ссылка [Расписания] во всплывающем окне после нажатия на ссылку [ещё]
-    private static final SelenideElement timetablesLink =
+    private SelenideElement timetablesLink =
             $(By.xpath("//div[@class='popup__content']//a[contains(., 'Расписания')]"));
     //------------------------------------------------------------------------------------------------------------------
 
