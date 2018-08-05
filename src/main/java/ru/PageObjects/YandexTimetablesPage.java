@@ -16,6 +16,10 @@ public class YandexTimetablesPage extends YandexMainPage
      * Локаторы элементов страницы.
      ******************************************************************************************************************/
     //------------------------------------------------------------------------------------------------------------------
+    // Позиция перключателя [Электричка]
+    private SelenideElement electricTrain =
+            $(By.xpath("//div[@class='header__transport-selector']//label[contains(., 'Электричка')]"));
+    //------------------------------------------------------------------------------------------------------------------
     // Строка для текстового поиска [Пункт отправления]
     private SelenideElement fromName =
             $(By.xpath("//input[@class='station-input_search__control' and @name='fromName']"));
@@ -38,6 +42,13 @@ public class YandexTimetablesPage extends YandexMainPage
     /*******************************************************************************************************************
      * Методы страницы.
      ******************************************************************************************************************/
+    public YandexTimetablesPage switchToElectricTrain()
+    {
+        electricTrain.waitUntil(clickable, timeout, polling).click();
+
+        return this;
+    }
+
     /**
      * Осуществляет поиск электричек в заданном направлении.
      * @param from пункт отправления
