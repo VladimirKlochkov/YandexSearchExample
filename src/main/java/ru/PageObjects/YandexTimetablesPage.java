@@ -49,5 +49,6 @@ public class YandexTimetablesPage extends YandexMainPage
         fromName.waitUntil(clickable, timeout, polling).sendKeys(from);
         toName.waitUntil(clickable, timeout, polling).sendKeys(to);
         date.waitUntil(clickable, timeout, polling).sendKeys(when);
+        searchButton.waitUntil(clickable, timeout, polling).click();
     }
 }
