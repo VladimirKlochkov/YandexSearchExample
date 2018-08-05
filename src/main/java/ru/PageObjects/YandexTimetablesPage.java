@@ -87,6 +87,8 @@ public class YandexTimetablesPage extends YandexMainPage
         toName.clear();
         toName.sendKeys(to);
         datePickerSearchIcon.waitUntil(clickable, timeout, polling).click();
+        SelenideElement day = $(By.xpath(String.format(calendarDay, nextDayOfWeekString)));
+        day.waitUntil(clickable, timeout, polling).click();
         searchButton.waitUntil(clickable, timeout, polling).click();
     }
 }
