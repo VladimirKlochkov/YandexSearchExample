@@ -17,15 +17,15 @@ public class YandexTimetablesPage extends YandexMainPage
      ******************************************************************************************************************/
     //------------------------------------------------------------------------------------------------------------------
     // Строка для текстового поиска [Пункт отправления] на странице сервиса 'Яндекс Расписания'
-    private SelenideElement destinationFromText = $(By.id("text"));
+    private SelenideElement fromName =
+            $(By.xpath("//input[@class='station-input_search__control' and @name='fromName']"));
     //------------------------------------------------------------------------------------------------------------------
     // Строка для текстового поиска [Пункт назначения] на странице сервиса 'Яндекс Расписания'
-    private SelenideElement destinationToText =
-            $(By.xpath("//a[@href='https://yandex.ru/all' and contains(., 'ещё')]"));
+    private SelenideElement toName = $(By.xpath("//input[@class='station-input_search__control' and @name='toName']"));
     //------------------------------------------------------------------------------------------------------------------
     // Кнопка [Найти] на странице сервиса 'Яндекс Расписания'
-    private SelenideElement findButton =
-            $(By.xpath("//div[@class='popup__content']//a[contains(., 'Расписания')]"));
+    private SelenideElement searchButton =
+            $(By.xpath("//button[@type='submit']/span[@class='y-button_islet-rasp-search__text']"));
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************

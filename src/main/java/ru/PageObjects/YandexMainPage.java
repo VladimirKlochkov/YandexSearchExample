@@ -22,12 +22,10 @@ public class YandexMainPage
     private SelenideElement yandexMainSearchString = $(By.id("text"));
     //------------------------------------------------------------------------------------------------------------------
     // Ссылка [ещё] на главной странице Яндекса
-    private SelenideElement moreLink =
-            $(By.xpath("//a[@href='https://yandex.ru/all' and contains(., 'ещё')]"));
+    private SelenideElement moreLink = $(By.xpath("//a[@href='https://yandex.ru/all' and contains(., 'ещё')]"));
     //------------------------------------------------------------------------------------------------------------------
     // Ссылка [Расписания] во всплывающем окне после нажатия на ссылку [ещё]
-    private SelenideElement timetablesLink =
-            $(By.xpath("//div[@class='popup__content']//a[contains(., 'Расписания')]"));
+    private SelenideElement timetablesLink = $(By.xpath("//div[@class='popup__content']//a[contains(., 'Расписания')]"));
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
