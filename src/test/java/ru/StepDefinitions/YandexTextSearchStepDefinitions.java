@@ -18,7 +18,7 @@ public class YandexTextSearchStepDefinitions
   /*********************************************************************************************************************
    * Поля класса.
    ********************************************************************************************************************/
-  private static final String url = "https://yandex.ru";
+  private static final String yandexMainPageUrl = "https://yandex.ru";
   private YandexMainPage yandexMainPage = new YandexMainPage();
 
   /*********************************************************************************************************************
@@ -27,8 +27,8 @@ public class YandexTextSearchStepDefinitions
   @Given("^Пользователь открывает страницу 'yandex.ru'$")
   public void userOpensYandexMainPage()
   {
-      yandexMainPage.openYandexMainPage(url);
-      Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(url));
+      yandexMainPage.openYandexMainPage(yandexMainPageUrl);
+      Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(yandexMainPageUrl));
   }
 
   @When("^Пользователь переходит на страницу сервиса 'Яндекс Расписания'$")
