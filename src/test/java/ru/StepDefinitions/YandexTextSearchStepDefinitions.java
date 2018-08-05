@@ -19,6 +19,7 @@ public class YandexTextSearchStepDefinitions
    * Поля класса.
    ********************************************************************************************************************/
   private static final String yandexMainPageUrl = "https://yandex.ru";
+  private static final String yandexTimetablesPageUrl = "https://rasp.yandex.ru";
   private YandexMainPage yandexMainPage = new YandexMainPage();
 
   /*********************************************************************************************************************
@@ -37,5 +38,6 @@ public class YandexTextSearchStepDefinitions
   {
     yandexMainPage.goToYandexTimetablesPage();
     //------------------------------------------------------------------------------------------------------------------
+    Assert.assertTrue("Страница 'Яндекс Расписания' не открылась", url().contains(yandexTimetablesPageUrl));
   }
 }
