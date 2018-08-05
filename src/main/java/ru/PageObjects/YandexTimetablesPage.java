@@ -1,10 +1,12 @@
 package ru.PageObjects;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Класс для работы со страницей сервиса 'Яндекс Расписания' (https://rasp.yandex.ru/).
@@ -31,8 +33,8 @@ public class YandexTimetablesPage extends YandexMainPage
     // Пиктограмма открытия календаря для поля [Когда]
     private SelenideElement datePickerSearchIcon = $(By.xpath("//label[@class='datepicker_search__icon']"));
     //------------------------------------------------------------------------------------------------------------------
-    private SelenideElement date =
-            $(By.xpath("//div[@class='datepicker_search__from']//input[@class='date-input_search__hidden-input']"));
+    // Дни в календаре, являющиеся выходными днями в конце недели
+    private ElementsCollection weekends = $$(By.xpath("//div[@class='calendar__day _weekend']"));
     //------------------------------------------------------------------------------------------------------------------
     // Кнопка [Найти]
     private SelenideElement searchButton =
@@ -68,7 +70,7 @@ public class YandexTimetablesPage extends YandexMainPage
         toName.clear();
         toName.sendKeys(to);
         datePickerSearchIcon.waitUntil(clickable, timeout, polling).click();
-        date.waitUntil(exist, timeout, polling).setValue(when);
+        weekends.waitUntil(exist, timeout, polling).setValue(when);
         searchButton.waitUntil(clickable, timeout, polling).click();
     }
 }
