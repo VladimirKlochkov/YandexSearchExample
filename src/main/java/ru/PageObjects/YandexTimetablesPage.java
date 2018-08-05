@@ -2,8 +2,8 @@ package ru.PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 /**
  * Класс для работы со страницей сервиса 'Яндекс Расписания' (https://rasp.yandex.ru/).
@@ -24,7 +24,7 @@ public class YandexTimetablesPage extends YandexMainPage
     private SelenideElement toName = $(By.xpath("//input[@class='station-input_search__control' and @name='toName']"));
     //------------------------------------------------------------------------------------------------------------------
     // Строка для текстового поиска [Когда]
-    private SelenideElement when = $(By.xpath("//input[@class='date-input_search__input']"));
+    private SelenideElement date = $(By.xpath("//input[@class='date-input_search__input']"));
     //------------------------------------------------------------------------------------------------------------------
     // Кнопка [Найти]
     private SelenideElement searchButton =
@@ -39,22 +39,10 @@ public class YandexTimetablesPage extends YandexMainPage
      * Методы страницы.
      ******************************************************************************************************************/
     /**
-     * Открывает главную страницу Яндекса.
-     * @param url адрес страницы
+     * Осуществляет поиск электричек в заданном направлении.
+     * @param from адрес страницы
      */
-    public void openYandexMainPage(String url)
+    public void searchForTimeTable(String from, String to, String when)
     {
-        open(url);
-        yandexMainSearchString.waitUntil(clickable, timeout, polling);
-    }
-
-    /**
-     *  Осуществляет переход на страницу сервиса 'Яндекс Расписания'.
-     */
-    public void goToYandexTimetablesPage()
-    {
-        moreLink.waitUntil(clickable, timeout, polling).click();
-        timetablesLink.waitUntil(clickable, timeout, polling).hover();
-        timetablesLink.click();
     }
 }
