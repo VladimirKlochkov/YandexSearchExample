@@ -2,6 +2,7 @@ package ru.PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -27,8 +28,11 @@ public class YandexTimetablesPage extends YandexMainPage
     // Строка для текстового поиска [Пункт назначения]
     private SelenideElement toName = $(By.xpath("//input[@class='station-input_search__control' and @name='toName']"));
     //------------------------------------------------------------------------------------------------------------------
-    // Строка для текстового поиска [Когда]
-    private SelenideElement date = $(By.xpath("//input[@class='date-input_search__input']"));
+    // Пиктограмма открытия календаря для поля [Когда]
+    private SelenideElement datePickerSearchIcon = $(By.xpath("//label[@class='datepicker_search__icon']"));
+    //------------------------------------------------------------------------------------------------------------------
+    private SelenideElement date =
+            $(By.xpath("//div[@class='datepicker_search__from']//input[@class='date-input_search__hidden-input']"));
     //------------------------------------------------------------------------------------------------------------------
     // Кнопка [Найти]
     private SelenideElement searchButton =
@@ -63,6 +67,7 @@ public class YandexTimetablesPage extends YandexMainPage
         toName.waitUntil(clickable, timeout, polling).click();
         toName.clear();
         toName.sendKeys(to);
+        datePickerSearchIcon.waitUntil(clickable, timeout, polling).click();
         date.waitUntil(exist, timeout, polling).setValue(when);
         searchButton.waitUntil(clickable, timeout, polling).click();
     }
