@@ -37,7 +37,8 @@ public class YandexTimetablesPage extends YandexMainPage
     private SelenideElement datePickerSearchIcon = $(By.xpath("//label[@class='datepicker_search__icon']"));
     //------------------------------------------------------------------------------------------------------------------
     // Дни в календаре, являющиеся выходными днями в конце недели
-    private ElementsCollection weekends = $$(By.xpath("//div[@class='calendar__day _weekend']"));
+    private ElementsCollection calendarDays =
+            $$(By.xpath("//div[@class='calendar__day' or @class='calendar__day _weekend']"));
     //------------------------------------------------------------------------------------------------------------------
     // Кнопка [Найти]
     private SelenideElement searchButton =
