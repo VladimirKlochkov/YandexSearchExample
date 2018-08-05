@@ -4,7 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -70,7 +70,8 @@ public class YandexTimetablesPage extends YandexMainPage
         toName.clear();
         toName.sendKeys(to);
         datePickerSearchIcon.waitUntil(clickable, timeout, polling).click();
-        weekends.waitUntil(exist, timeout, polling).setValue(when);
+        ElementsCollection visibleWeekends = weekends.filterBy(visible);
+        visibleWeekends.get(0).click();
         searchButton.waitUntil(clickable, timeout, polling).click();
     }
 }
