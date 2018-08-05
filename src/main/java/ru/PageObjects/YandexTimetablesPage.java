@@ -80,6 +80,7 @@ public class YandexTimetablesPage extends YandexMainPage
         LocalDate nextDayOfWeek = LocalDate.now().with(TemporalAdjusters.next(days.get(when)));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String nextDayOfWeekString = nextDayOfWeek.format(formatter);
+
         fromName.waitUntil(clickable, timeout, polling).click();
         fromName.clear();
         fromName.sendKeys(from);
