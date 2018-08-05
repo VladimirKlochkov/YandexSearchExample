@@ -21,6 +21,7 @@ public class YandexTextSearchStepDefinitions
    ********************************************************************************************************************/
   private static final String yandexMainPageUrl = "https://yandex.ru";
   private static final String yandexTimetablesPageUrl = "https://rasp.yandex.ru";
+  private static final String yandexTimetablesSearchResultsPageUrl = "https://rasp.yandex.ru/search/suburban/";
   private YandexMainPage yandexMainPage = new YandexMainPage();
   private YandexTimetablesPage yandexTimetablesPage = new YandexTimetablesPage();
 
@@ -48,5 +49,7 @@ public class YandexTextSearchStepDefinitions
   {
     yandexTimetablesPage.switchToElectricTrain().searchForTimeTable(from, to, when);
     //------------------------------------------------------------------------------------------------------------------
+      Assert.assertTrue("Страница результатов поиска для сервиса 'Яндекс Расписания' не открылась",
+              url().contains(yandexTimetablesSearchResultsPageUrl));
   }
 }
