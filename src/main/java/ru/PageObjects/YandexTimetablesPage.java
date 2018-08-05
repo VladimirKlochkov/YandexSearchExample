@@ -1,18 +1,16 @@
 package ru.PageObjects;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
- * Класс для работы с главной страницей Яндекса (https://yandex.ru/).
- * Created by Vladimir V. Klochkov on 04.08.2018.
+ * Класс для работы со страницей сервиса 'Яндекс Расписания' (https://rasp.yandex.ru/).
+ * Created by Vladimir V. Klochkov on 05.08.2018.
  * Updated by Vladimir V. Klochkov on 05.08.2018.
  */
-public class YandexMainPage
+public class YandexTimetablesPage extends YandexMainPage
 {
     /*******************************************************************************************************************
      * Локаторы элементов страницы.
@@ -33,9 +31,6 @@ public class YandexMainPage
     /*******************************************************************************************************************
      * Поля страницы.
      ******************************************************************************************************************/
-    Condition clickable = and("can be clicked", visible, enabled); // по элементу можно сделать клик
-    long timeout = 30000; // общее время ожидания (миллисекунды)
-    long polling = 1000; // интервал проверки выполнения условия (миллисекунды)
 
     /*******************************************************************************************************************
      * Методы страницы.
