@@ -2,6 +2,7 @@ package ru.PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
@@ -35,10 +36,6 @@ public class YandexTimetablesPage extends YandexMainPage
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
-     * Поля страницы.
-     ******************************************************************************************************************/
-
-    /*******************************************************************************************************************
      * Методы страницы.
      ******************************************************************************************************************/
     /**
@@ -62,7 +59,7 @@ public class YandexTimetablesPage extends YandexMainPage
     {
         fromName.waitUntil(clickable, timeout, polling).sendKeys(from);
         toName.waitUntil(clickable, timeout, polling).sendKeys(to);
-        date.waitUntil(clickable, timeout, polling).sendKeys(when);
+        date.waitUntil(exist, timeout, polling).sendKeys(when);
         searchButton.waitUntil(clickable, timeout, polling).click();
     }
 }
