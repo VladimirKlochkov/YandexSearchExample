@@ -28,6 +28,7 @@ public class YandexTextSearchStepDefinitions
   public void userOpensYandexMainPage()
   {
       yandexMainPage.openYandexMainPage(yandexMainPageUrl);
+    //------------------------------------------------------------------------------------------------------------------
       Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(yandexMainPageUrl));
   }
 
