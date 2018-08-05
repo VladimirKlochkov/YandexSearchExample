@@ -4,6 +4,11 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -62,6 +67,9 @@ public class YandexTimetablesPage extends YandexMainPage
      */
     public void searchForTimeTable(String from, String to, String when)
     {
+        LocalDate nextDayOfWeek = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String nextDayOfWeekString = nextDayOfWeek.format(formatter);
         fromName.waitUntil(clickable, timeout, polling).click();
         fromName.clear();
         fromName.sendKeys(from);
