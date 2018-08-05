@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import ru.PageObjects.YandexMainPage;
-
+import ru.PageObjects.YandexTimetablesPage;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
@@ -21,6 +21,7 @@ public class YandexTextSearchStepDefinitions
   private static final String yandexMainPageUrl = "https://yandex.ru";
   private static final String yandexTimetablesPageUrl = "https://rasp.yandex.ru";
   private YandexMainPage yandexMainPage = new YandexMainPage();
+  private YandexTimetablesPage yandexTimetablesPage = new YandexTimetablesPage();
 
   /*********************************************************************************************************************
    * Методы класса.
