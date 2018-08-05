@@ -35,13 +35,10 @@ public class YandexMainPage
     /**
      * Открывает главную страницу Яндекса.
      * @param url адрес страницы
-     * @return главную страницу Яндекса
      */
-    public YandexMainPage openYandexMainPage(String url)
+    public void openYandexMainPage(String url)
     {
         open(url);
         yandexMainSearchString.waitUntil(clickable, timeout, polling);
-
-        return this;
     }
 }
