@@ -40,7 +40,9 @@ public class YandexTimetablesPage extends YandexMainPage
      ******************************************************************************************************************/
     /**
      * Осуществляет поиск электричек в заданном направлении.
-     * @param from адрес страницы
+     * @param from пункт отправления
+     * @param to пункт назначения
+     * @param when день недели или дата в виде строки
      */
     public void searchForTimeTable(String from, String to, String when)
     {
