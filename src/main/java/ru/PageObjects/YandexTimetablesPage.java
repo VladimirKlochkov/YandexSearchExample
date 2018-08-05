@@ -76,6 +76,7 @@ public class YandexTimetablesPage extends YandexMainPage
         days.put("суббота", DayOfWeek.SATURDAY);
         days.put("воскресенье", DayOfWeek.SUNDAY);
 
+        // Получаем дату в формате ГГГГ-ММ_ДД для того, чтобы найти требуемый элемент в календаре
         LocalDate nextDayOfWeek = LocalDate.now().with(TemporalAdjusters.next(days.get(when)));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String nextDayOfWeekString = nextDayOfWeek.format(formatter);
