@@ -8,6 +8,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Hashtable;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -67,7 +68,16 @@ public class YandexTimetablesPage extends YandexMainPage
      */
     public void searchForTimeTable(String from, String to, String when)
     {
-        LocalDate nextDayOfWeek = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+        Hashtable<String, DayOfWeek> days = new Hashtable<>();
+        days.put("понедельник", DayOfWeek.MONDAY);
+        days.put("вторник", DayOfWeek.TUESDAY);
+        days.put("среда", DayOfWeek.WEDNESDAY);
+        days.put("четверг", DayOfWeek.THURSDAY);
+        days.put("пятница", DayOfWeek.FRIDAY);
+        days.put("суббота", DayOfWeek.SATURDAY);
+        days.put("воскресенье", DayOfWeek.SUNDAY);
+
+        LocalDate nextDayOfWeek = LocalDate.now().with(TemporalAdjusters.next(days.get(when)));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String nextDayOfWeekString = nextDayOfWeek.format(formatter);
         fromName.waitUntil(clickable, timeout, polling).click();
