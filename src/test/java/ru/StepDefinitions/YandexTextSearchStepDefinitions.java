@@ -49,7 +49,7 @@ public class YandexTextSearchStepDefinitions
   }
 
   @When("^Пользователь переходит на страницу сервиса 'Яндекс Расписания'$")
-    public void userGoesToYandexTimetablesPage()
+  public void userGoesToYandexTimetablesPage()
   {
       yandexMainPage.goToYandexTimetablesPage();
       //----------------------------------------------------------------------------------------------------------------
@@ -80,12 +80,20 @@ public class YandexTextSearchStepDefinitions
       int total = yandexTimetablesSearchResultsPage.storeAllDataAboutTrip();
       //----------------------------------------------------------------------------------------------------------------
       Assert.assertTrue("Рейсы по указанным параметрам поиска отсутствуют", total > 0);
+      // Тест будет завершен с ошибкой если не найдено ни одного рейса !
   }
 
   @Then("^Пользователь выводит на консоль данные о рейсе$")
     public void userPrintsTripDataToConsole()
   {
       yandexTimetablesSearchResultsPage.printTripDataToConsole();
+      //----------------------------------------------------------------------------------------------------------------
+      // Здесь идет вывод отладочной информации, проверка не требуется
+  }
+
+  @Then("^Пользователь открывает страницу информации о рейсе$")
+  public void userOpensTripDataDetailsPage()
+  {
       //----------------------------------------------------------------------------------------------------------------
       Assert.assertTrue("Страница с информацией о найденном рейсе не открылась",
               url().contains(yandexTripDataDetailsPageUrl));
