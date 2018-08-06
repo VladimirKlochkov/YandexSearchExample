@@ -7,12 +7,14 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import ru.PageObjects.YandexMainPage;
 import ru.PageObjects.YandexTimetablesPage;
+import ru.PageObjects.YandexTimetablesSearchResultsPage;
+
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
  * Класс описывающий шаги теста по поиску электричек с помощью соответствующего сервиса Яндекса.
  * Created by Vladimir V. Klochkov on 04.08.2018.
- * Updated by Vladimir V. Klochkov on 05.08.2018.
+ * Updated by Vladimir V. Klochkov on 06.08.2018.
  */
 public class YandexTextSearchStepDefinitions
 {
@@ -24,6 +26,7 @@ public class YandexTextSearchStepDefinitions
   private static final String yandexTimetablesSearchResultsPageUrl = "https://rasp.yandex.ru/search/suburban/";
   private YandexMainPage yandexMainPage = new YandexMainPage();
   private YandexTimetablesPage yandexTimetablesPage = new YandexTimetablesPage();
+  private YandexTimetablesSearchResultsPage yandexTimetablesSearchResultsPage = new YandexTimetablesSearchResultsPage();
 
   /*********************************************************************************************************************
    * Методы класса.
@@ -54,8 +57,9 @@ public class YandexTextSearchStepDefinitions
   }
 
   @Then("^Пользователь проверяет, что поиск произведен и название таблицы результатов соответствует параметрам поиска$")
-  public void userChecksSearchResults()
+  public void userChecksSearchResultsForKeyWords()
   {
+      yandexTimetablesSearchResultsPage.checkSearchResultsForKeyWords();
       //----------------------------------------------------------------------------------------------------------------
   }
 }

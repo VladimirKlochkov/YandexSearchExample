@@ -30,7 +30,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
      * Переключает режим поиска в положение 'Электричка'.
      * @return страница сервиса 'Яндекс Расписания'
      */
-    public YandexTimetablesSearchResultsPage switchToElectricTrain()
+    public YandexTimetablesSearchResultsPage checkSearchResultsForKeyWords()
     {
         return this;
     }
