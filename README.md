@@ -1,11 +1,11 @@
-Selenide examples: Cucumber
-========================
+Пример автотеста: Поиск электричек с помощью сервиса 'Яндекс Расписания'
+========================================================================
 
-This is a sample project demonstrating how to use Selenide with Cucumber and Maven.
+Это простой проект, который демонстрирует как использовать Selenide совместно с Cucumber и Maven.
 
-### How to run
+### Как запустить автотест:
 
-To run Selenide+Cucumber tests, just type from command line:
+Для запуска теста Selenide совместно с Cucumber, просто введите следующий текст в командной строке:
 
 ```
 mvn test
