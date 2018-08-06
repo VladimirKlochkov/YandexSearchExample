@@ -1,10 +1,13 @@
 package ru.PageObjects;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Класс для работы со страницей результатов поиска в сервисе 'Яндекс Расписания'
@@ -58,10 +61,19 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     /**
      * Сохраняет данные о рейсе, который отправляется после полудня и билет на который стоит до 200 руб.
      */
-    public void storeAllDataAboutTrip()
+    public int storeAllDataAboutTrip()
     {
         lowerThan200RoublesCheckBox.waitUntil(clickable, timeout, polling).click();
         day.waitUntil(clickable, timeout, polling).click();
         evening.waitUntil(clickable, timeout, polling).click();
+
+        ElementsCollection trips =
+                $$(By.xpath("//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']"));
+        int total = trips.size();
+        if (total > 0) {
+                System.out.println(String.format("Найдено рейсов - %d.", total));
+        }
+
+        return total;
     }
 }

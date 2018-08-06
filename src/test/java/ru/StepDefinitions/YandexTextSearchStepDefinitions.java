@@ -76,7 +76,8 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь сохраняет данные о рейсе, который отправляется после полудня и билет на который стоит до 200 руб.$")
   public void userStoresAllDataAboutTrip()
   {
-      yandexTimetablesSearchResultsPage.storeAllDataAboutTrip();
+      int total = yandexTimetablesSearchResultsPage.storeAllDataAboutTrip();
       //----------------------------------------------------------------------------------------------------------------
+      Assert.assertTrue("Рейсы по указанным параметрам поиска отсутствуют", total > 0);
   }
 }
