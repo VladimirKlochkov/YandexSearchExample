@@ -67,6 +67,15 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
+     * Поля страницы.
+     ******************************************************************************************************************/
+    String tripLink;
+    String tripTimeFrom;
+    String duration;
+    String tripTimeTo;
+    String tripPriceInRoubles;
+
+    /*******************************************************************************************************************
      * Методы страницы.
      ******************************************************************************************************************/
     /**
@@ -96,11 +105,12 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         int total = trips.size();
         if (total > 0) {
             System.out.println(String.format("Найдено рейсов - %d.", total));
-            String tripLink = $$(By.xpath(tripNameLinks)).get(0).getAttribute("title");
-            String tripTimeFrom = $$(By.xpath(triptripTimesFrom)).get(0).getText();
-            String duration = $$(By.xpath(durations)).get(0).getText();
-            String tripTimeTo = $$(By.xpath(triptripTimesTo)).get(0).getText();
-            String tripPriceInRoubles = $$(By.xpath(tripPricesInRoubles)).get(0).getText();
+
+            tripLink = $$(By.xpath(tripNameLinks)).get(0).getAttribute("title");
+            tripTimeFrom = $$(By.xpath(triptripTimesFrom)).get(0).getText();
+            duration = $$(By.xpath(durations)).get(0).getText();
+            tripTimeTo = $$(By.xpath(triptripTimesTo)).get(0).getText();
+            tripPriceInRoubles = $$(By.xpath(tripPricesInRoubles)).get(0).getText();
         }
 
         return total;
