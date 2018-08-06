@@ -81,11 +81,12 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         if (total > 0) {
             System.out.println(String.format("Найдено рейсов - %d.", total));
 
-            String tripLink = $$(By.xpath("//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']//a")).get(0).getAttribute("title");
+            String tripLink = $$(By.xpath(tripsXpath + "//a")).get(0).getAttribute("title");
             String tripTime =
-                    trips.get(0).find(By.xpath("//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']//div[@class='SearchSegment__dateTime Time_important']/span")).getText();
+                    trips.get(0).find(By.xpath(tripsXpath + "//div[@class='SearchSegment__dateTime " +
+                            "Time_important']/span")).getText();
             String tripPriceInRoubles =
-                    trips.get(0).find(By.xpath("//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']//div[@class='SegmentPrices']//span[@class='Price " +
+                    trips.get(0).find(By.xpath(tripsXpath + "//span[@class='Price " +
                             "SuburbanTariffs__buttonPrice']")).getText();
             System.out.println();
         }
