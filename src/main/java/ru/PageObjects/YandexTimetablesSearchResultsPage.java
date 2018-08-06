@@ -41,6 +41,10 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
             $(By.xpath("//div[@class='FilterTimeOfDayContent FilterTimeOfDayContent_withOptionProps']//" +
                     "span[@class='FilterTimeOfDayContent__timeName' and contains(., 'Вечер')]"));
     //------------------------------------------------------------------------------------------------------------------
+    // Все найденные рейсы в результатах поиска
+    private String tripsXpath =
+            "//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']";
+    //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
      * Методы страницы.
@@ -67,7 +71,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         day.waitUntil(clickable, timeout, polling).click();
         evening.waitUntil(clickable, timeout, polling).click();
 
-        ElementsCollection trips = $$(By.xpath("//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']"));
+        ElementsCollection trips = $$(By.xpath(tripsXpath));
         int total = trips.size();
         if (total > 0) {
             System.out.println(String.format("Найдено рейсов - %d.", total));
