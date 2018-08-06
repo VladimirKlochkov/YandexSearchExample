@@ -94,6 +94,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь открывает страницу информации о рейсе$")
   public void userOpensTripDataDetailsPage()
   {
+      yandexTimetablesSearchResultsPage.openTripDataDetailsPage();
       //----------------------------------------------------------------------------------------------------------------
       Assert.assertTrue("Страница с информацией о найденном рейсе не открылась",
               url().contains(yandexTripDataDetailsPageUrl));

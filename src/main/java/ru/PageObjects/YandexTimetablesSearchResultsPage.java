@@ -111,8 +111,6 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
             duration = $$(By.xpath(durations)).get(0).getText();
             tripTimeTo = $$(By.xpath(triptripTimesTo)).get(0).getText();
             tripPriceInRoubles = $$(By.xpath(tripPricesInRoubles)).get(0).getText();
-
-            $$(By.xpath(tripNameLinks)).get(0).waitUntil(clickable, timeout, polling).click();
         }
 
         return total;
@@ -129,5 +127,13 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         System.out.println(String.format("Длительность рейса      : %s", duration));
         System.out.println(String.format("Время прибытия          : %s", tripTimeTo));
         System.out.println(String.format("Стоимость поездки, руб. : %s", tripPriceInRoubles));
+    }
+
+    /**
+     * Открывает страницу информации о рейсе.
+     */
+    public void openTripDataDetailsPage()
+    {
+        $$(By.xpath(tripNameLinks)).get(0).waitUntil(clickable, timeout, polling).click();
     }
 }
