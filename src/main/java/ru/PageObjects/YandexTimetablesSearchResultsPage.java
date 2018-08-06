@@ -46,8 +46,11 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
                     "span[@class='FilterTimeOfDayContent__timeName' and contains(., 'Вечер')]"));
     //------------------------------------------------------------------------------------------------------------------
     // Все найденные рейсы в результатах поиска ( для оценки сколько рейсов было найдено вообще )
-    private String tripsXpath =
+    private String tripRecords =
             "//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']";
+    //------------------------------------------------------------------------------------------------------------------
+    // Рейсы в результатах поиска - ссылки с названием рейсов
+    private String tripNameLinks = tripRecords + "//a";
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
@@ -76,23 +79,23 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         day.waitUntil(clickable, timeout, polling).click();
         evening.waitUntil(clickable, timeout, polling).click();
 
-        ElementsCollection trips = $$(By.xpath(tripsXpath));
+        ElementsCollection trips = $$(By.xpath(tripRecords));
         int total = trips.size();
         if (total > 0) {
             System.out.println(String.format("Найдено рейсов - %d.", total));
 
-            String tripLink = $$(By.xpath(tripsXpath + "//a")).get(0).getAttribute("title");
+            String tripLink = $$(By.xpath(tripNameLinks)).get(0).getAttribute("title");
             String tripTimeFrom =
-                    trips.get(0).find(By.xpath(tripsXpath +
+                    trips.get(0).find(By.xpath(this.tripRecords +
                             "//div[@class='SearchSegment__dateTime Time_important']/span")).getText();
             String duration =
-                    trips.get(0).find(By.xpath(tripsXpath +
+                    trips.get(0).find(By.xpath(this.tripRecords +
                             "//div[@class='SearchSegment__duration']")).getText();
             String tripTimeTo =
-                    trips.get(0).find(By.xpath(tripsXpath +
+                    trips.get(0).find(By.xpath(this.tripRecords +
                             "//div[@class='SearchSegment__dateTime']/span[@class='SearchSegment__time']")).getText();
             String tripPriceInRoubles =
-                    trips.get(0).find(By.xpath(tripsXpath + "//span[@class='Price " +
+                    trips.get(0).find(By.xpath(this.tripRecords + "//span[@class='Price " +
                             "SuburbanTariffs__buttonPrice']")).getText();
             System.out.println();
         }
