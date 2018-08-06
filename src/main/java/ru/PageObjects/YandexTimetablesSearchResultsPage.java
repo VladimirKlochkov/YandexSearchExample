@@ -111,6 +111,8 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
             duration = $$(By.xpath(durations)).get(0).getText();
             tripTimeTo = $$(By.xpath(triptripTimesTo)).get(0).getText();
             tripPriceInRoubles = $$(By.xpath(tripPricesInRoubles)).get(0).getText();
+
+            $$(By.xpath(tripNameLinks)).get(0).waitUntil(clickable, timeout, polling).click();
         }
 
         return total;
