@@ -2,6 +2,8 @@ package ru.PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
@@ -34,5 +36,8 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
      */
     public void checkSearchResultsForKeyWords(String from, String to, String when)
     {
+        fromToNames.waitUntil(visible, timeout, polling).shouldHave(text(from));
+        fromToNames.shouldHave(text(to));
+        dayOfWeek.waitUntil(visible, timeout, polling).shouldHave(text(when));
     }
 }
