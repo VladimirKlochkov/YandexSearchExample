@@ -84,6 +84,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь выводит на консоль данные о рейсе$")
     public void userPrintsTripDataToConsole()
   {
+      yandexTimetablesSearchResultsPage.printTripDataToConsole();
       //----------------------------------------------------------------------------------------------------------------
   }
 }

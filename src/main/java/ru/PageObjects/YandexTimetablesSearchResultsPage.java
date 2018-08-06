@@ -115,4 +115,12 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
 
         return total;
     }
+
+    /**
+     * Выводит на консоль данные о рейсе.
+     */
+    public void printTripDataToConsole()
+    {
+
+    }
 }
