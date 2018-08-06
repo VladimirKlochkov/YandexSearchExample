@@ -36,8 +36,8 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
      */
     public void checkSearchResultsForKeyWords(String from, String to, String when)
     {
-        fromToNames.waitUntil(visible, timeout, polling).shouldHave(text(from));
-        fromToNames.shouldHave(text(to));
+        fromToNames.waitUntil(visible, timeout, polling).shouldHave(text("из " + from));
+        fromToNames.shouldHave(text("в " + to));
         dayOfWeek.waitUntil(visible, timeout, polling).shouldHave(text(when));
     }
 }
