@@ -67,11 +67,10 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         day.waitUntil(clickable, timeout, polling).click();
         evening.waitUntil(clickable, timeout, polling).click();
 
-        ElementsCollection trips =
-                $$(By.xpath("//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']"));
+        ElementsCollection trips = $$(By.xpath("//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']"));
         int total = trips.size();
         if (total > 0) {
-                System.out.println(String.format("Найдено рейсов - %d.", total));
+            System.out.println(String.format("Найдено рейсов - %d.", total));
         }
 
         return total;
