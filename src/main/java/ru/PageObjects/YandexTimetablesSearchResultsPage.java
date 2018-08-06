@@ -10,7 +10,8 @@ import java.util.Hashtable;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
- * Класс для работы со страницей сервиса 'Яндекс Расписания' (https://rasp.yandex.ru/).
+ * Класс для работы со страницей результатов поиска в сервисе 'Яндекс Расписания'
+ * ( https://rasp.yandex.ru/search/suburban/ ).
  * Created by Vladimir V. Klochkov on 06.08.2018.
  * Updated by Vladimir V. Klochkov on 06.08.2018.
  */

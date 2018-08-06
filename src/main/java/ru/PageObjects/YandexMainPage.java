@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
- * Класс для работы с главной страницей Яндекса (https://yandex.ru/).
+ * Класс для работы с главной страницей Яндекса ( https://yandex.ru/ ).
  * Created by Vladimir V. Klochkov on 04.08.2018.
  * Updated by Vladimir V. Klochkov on 05.08.2018.
  */
