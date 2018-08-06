@@ -52,6 +52,9 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     // Рейсы в результатах поиска - ссылки с названием рейсов
     private String tripNameLinks = tripRecords + "//a";
     //------------------------------------------------------------------------------------------------------------------
+    // Рейсы в результатах поиска - время отправления
+    private String triptripTimesFrom = tripRecords + "//div[@class='SearchSegment__dateTime Time_important']/span";
+    //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
      * Методы страницы.
@@ -85,9 +88,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
             System.out.println(String.format("Найдено рейсов - %d.", total));
 
             String tripLink = $$(By.xpath(tripNameLinks)).get(0).getAttribute("title");
-            String tripTimeFrom =
-                    trips.get(0).find(By.xpath(this.tripRecords +
-                            "//div[@class='SearchSegment__dateTime Time_important']/span")).getText();
+            String tripTimeFrom = $$(By.xpath(triptripTimesFrom)).get(0).getText();
             String duration =
                     trips.get(0).find(By.xpath(this.tripRecords +
                             "//div[@class='SearchSegment__duration']")).getText();
