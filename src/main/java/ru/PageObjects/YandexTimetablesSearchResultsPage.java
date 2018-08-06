@@ -26,7 +26,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     //------------------------------------------------------------------------------------------------------------------
     // Блок фильтров, раздел [Цены], флажок [до 200 руб.]
     private SelenideElement lowerThan200RoublesCheckBox =
-            $(By.xpath("//li[@class='CheckList__item CheckList__item_100-200']//span[@class='Checkbox__fakeInput']"));
+            $(By.xpath("//li[@class='CheckList__item CheckList__item_100-200']/label"));
     //------------------------------------------------------------------------------------------------------------------
     // Блок фильтров, раздел [Время], кнопка [День]
     private SelenideElement day =
