@@ -24,6 +24,9 @@ public class YandexTextSearchStepDefinitions
   private static final String yandexMainPageUrl = "https://yandex.ru";
   private static final String yandexTimetablesPageUrl = "https://rasp.yandex.ru";
   private static final String yandexTimetablesSearchResultsPageUrl = "https://rasp.yandex.ru/search/suburban/";
+  private String fromParameter;
+  private String toParameter;
+  private String whenParameter;
   private YandexMainPage yandexMainPage = new YandexMainPage();
   private YandexTimetablesPage yandexTimetablesPage = new YandexTimetablesPage();
   private YandexTimetablesSearchResultsPage yandexTimetablesSearchResultsPage = new YandexTimetablesSearchResultsPage();
@@ -50,6 +53,9 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь осуществляет поиск электричек из пункта \"([^\"]*)\" в пункт \"([^\"]*)\" на \"([^\"]*)\"$")
   public void userSearchesElectricTrains(String from, String to, String when)
   {
+      fromParameter = from;
+      toParameter = to;
+      whenParameter = when;
       yandexTimetablesPage.switchToElectricTrain().searchForTimeTable(from, to, when);
       //----------------------------------------------------------------------------------------------------------------
         Assert.assertTrue("Страница результатов поиска для сервиса 'Яндекс Расписания' не открылась",
@@ -59,7 +65,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь проверяет, что поиск произведен и название таблицы результатов соответствует параметрам поиска$")
   public void userChecksSearchResultsForKeyWords()
   {
-      yandexTimetablesSearchResultsPage.checkSearchResultsForKeyWords();
+      yandexTimetablesSearchResultsPage.checkSearchResultsForKeyWords(fromParameter, toParameter, whenParameter);
       //----------------------------------------------------------------------------------------------------------------
   }
 }
