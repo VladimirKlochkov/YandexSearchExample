@@ -30,7 +30,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     private SelenideElement lowerThan200RoublesCheckBox =
             $(By.xpath("//li[@class='CheckList__item CheckList__item_100-200']/label"));
     //------------------------------------------------------------------------------------------------------------------
-    // Блок фильтров, раздел [Цены], кнопка [Отправление]
+    // Блок фильтров, раздел [Время], кнопка [Отправление]
     private SelenideElement departure =
             $(By.xpath("//div[@class='FilterTimeOfDayContent FilterTimeOfDayContent_withOptionProps']//" +
                     "label/input[@value='departure']/.."));
@@ -57,6 +57,10 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     //------------------------------------------------------------------------------------------------------------------
     // Рейсы в результатах поиска - длительность рейсов
     private String durations = tripRecords + "//div[@class='SearchSegment__duration']";
+    //------------------------------------------------------------------------------------------------------------------
+    // Рейсы в результатах поиска - время прибытия
+    private String triptripTimesTo =
+            tripRecords + "//div[@class='SearchSegment__dateTime']/span[@class='SearchSegment__time']";
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
@@ -93,9 +97,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
             String tripLink = $$(By.xpath(tripNameLinks)).get(0).getAttribute("title");
             String tripTimeFrom = $$(By.xpath(triptripTimesFrom)).get(0).getText();
             String duration = $$(By.xpath(durations)).get(0).getText();
-            String tripTimeTo =
-                    trips.get(0).find(By.xpath(this.tripRecords +
-                            "//div[@class='SearchSegment__dateTime']/span[@class='SearchSegment__time']")).getText();
+            String tripTimeTo = $$(By.xpath(triptripTimesTo)).get(0).getText();
             String tripPriceInRoubles =
                     trips.get(0).find(By.xpath(this.tripRecords + "//span[@class='Price " +
                             "SuburbanTariffs__buttonPrice']")).getText();
