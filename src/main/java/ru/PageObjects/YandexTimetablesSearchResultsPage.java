@@ -30,6 +30,11 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     private SelenideElement lowerThan200RoublesCheckBox =
             $(By.xpath("//li[@class='CheckList__item CheckList__item_100-200']/label"));
     //------------------------------------------------------------------------------------------------------------------
+    // Блок фильтров, раздел [Цены], кнопка [Отправление]
+    private SelenideElement departure =
+            $(By.xpath("//div[@class='FilterTimeOfDayContent FilterTimeOfDayContent_withOptionProps']//" +
+                    "label/input[@value='departure']/.."));
+    //------------------------------------------------------------------------------------------------------------------
     // Блок фильтров, раздел [Время], кнопка [День]
     private SelenideElement day =
             $(By.xpath("//div[@class='FilterTimeOfDayContent FilterTimeOfDayContent_withOptionProps']//" +
@@ -67,6 +72,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     public int storeAllDataAboutTrip()
     {
         lowerThan200RoublesCheckBox.waitUntil(clickable, timeout, polling).click();
+        departure.waitUntil(clickable, timeout, polling).click();
         day.waitUntil(clickable, timeout, polling).click();
         evening.waitUntil(clickable, timeout, polling).click();
 
