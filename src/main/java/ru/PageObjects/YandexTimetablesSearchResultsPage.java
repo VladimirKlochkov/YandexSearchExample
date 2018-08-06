@@ -62,6 +62,9 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     private String triptripTimesTo =
             tripRecords + "//div[@class='SearchSegment__dateTime']/span[@class='SearchSegment__time']";
     //------------------------------------------------------------------------------------------------------------------
+    // Рейсы в результатах поиска - стоимость поездки
+    private String tripPricesInRoubles = tripRecords + "//span[@class='Price SuburbanTariffs__buttonPrice']";
+    //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
      * Методы страницы.
@@ -98,9 +101,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
             String tripTimeFrom = $$(By.xpath(triptripTimesFrom)).get(0).getText();
             String duration = $$(By.xpath(durations)).get(0).getText();
             String tripTimeTo = $$(By.xpath(triptripTimesTo)).get(0).getText();
-            String tripPriceInRoubles =
-                    trips.get(0).find(By.xpath(this.tripRecords + "//span[@class='Price " +
-                            "SuburbanTariffs__buttonPrice']")).getText();
+            String tripPriceInRoubles = $$(By.xpath(tripPricesInRoubles)).get(0).getText();
             System.out.println();
         }
 
