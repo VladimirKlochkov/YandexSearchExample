@@ -53,9 +53,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь осуществляет поиск электричек из пункта \"([^\"]*)\" в пункт \"([^\"]*)\" на \"([^\"]*)\"$")
   public void userSearchesElectricTrains(String from, String to, String when)
   {
-      fromParameter = from;
-      toParameter = to;
-      whenParameter = when;
+      fromParameter = from; toParameter = to; whenParameter = when;
       yandexTimetablesPage.switchToElectricTrain().searchForTimeTable(from, to, when);
       //----------------------------------------------------------------------------------------------------------------
         Assert.assertTrue("Страница результатов поиска для сервиса 'Яндекс Расписания' не открылась",

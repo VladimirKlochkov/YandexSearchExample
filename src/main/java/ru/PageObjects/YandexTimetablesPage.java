@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Класс для работы со страницей сервиса 'Яндекс Расписания' ( https://rasp.yandex.ru/ ).
  * Created by Vladimir V. Klochkov on 05.08.2018.
- * Updated by Vladimir V. Klochkov on 05.08.2018.
+ * Updated by Vladimir V. Klochkov on 06.08.2018.
  */
 public class YandexTimetablesPage extends YandexMainPage
 {
