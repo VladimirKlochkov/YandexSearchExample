@@ -83,8 +83,11 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
 
             String tripLink = $$(By.xpath(tripsXpath + "//a")).get(0).getAttribute("title");
             String tripTimeFrom =
-                    trips.get(0).find(By.xpath(tripsXpath + "//div[@class='SearchSegment__dateTime " +
-                            "Time_important']/span")).getText();
+                    trips.get(0).find(By.xpath(tripsXpath +
+                            "//div[@class='SearchSegment__dateTime Time_important']/span")).getText();
+            String duration =
+                    trips.get(0).find(By.xpath(tripsXpath +
+                            "//div[@class='SearchSegment__duration']")).getText();
             String tripTimeTo =
                     trips.get(0).find(By.xpath(tripsXpath +
                             "//div[@class='SearchSegment__dateTime']/span[@class='SearchSegment__time']")).getText();
