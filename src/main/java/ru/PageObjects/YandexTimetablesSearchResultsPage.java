@@ -69,11 +69,11 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     /*******************************************************************************************************************
      * Поля страницы.
      ******************************************************************************************************************/
-    String tripLink;
-    String tripTimeFrom;
-    String duration;
-    String tripTimeTo;
-    String tripPriceInRoubles;
+    private String tripLink;           // ссылка с названием рейса
+    private String tripTimeFrom;       // время отправления
+    private String duration;           // длительность рейса
+    private String tripTimeTo;         // время прибытия
+    private String tripPriceInRoubles; // стоимость поездки
 
     /*******************************************************************************************************************
      * Методы страницы.
