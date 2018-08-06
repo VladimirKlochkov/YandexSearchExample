@@ -104,7 +104,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         ElementsCollection trips = $$(By.xpath(tripRecords));
         int total = trips.size();
         if (total > 0) {
-            System.out.println(String.format("Найдено рейсов - %d.", total));
+            System.out.println(String.format("Найдено рейсов: %d", total));
 
             tripLink = $$(By.xpath(tripNameLinks)).get(0).getAttribute("title");
             tripTimeFrom = $$(By.xpath(triptripTimesFrom)).get(0).getText();
@@ -122,10 +122,10 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     public void printTripDataToConsole()
     {
         System.out.println("Данные о ближайшем рейсе:");
-        System.out.println(String.format("Название рейса: %s", tripLink));
-        System.out.println(String.format("Время отправления: %s", tripTimeFrom));
-        System.out.println(String.format("Длительность рейса: %s", duration));
-        System.out.println(String.format("Время прибытия: %s", tripTimeTo));
-        System.out.println(String.format("Стоимость поездки, руб.: %s", tripPriceInRoubles));
+        System.out.println(String.format("Название рейса          : %s", tripLink));
+        System.out.println(String.format("Время отправления       : %s", tripTimeFrom));
+        System.out.println(String.format("Длительность рейса      : %s", duration));
+        System.out.println(String.format("Время прибытия          : %s", tripTimeTo));
+        System.out.println(String.format("Стоимость поездки, руб. : %s", tripPriceInRoubles));
     }
 }
