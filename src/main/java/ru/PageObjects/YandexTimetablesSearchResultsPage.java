@@ -45,7 +45,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
             $(By.xpath("//div[@class='FilterTimeOfDayContent FilterTimeOfDayContent_withOptionProps']//" +
                     "span[@class='FilterTimeOfDayContent__timeName' and contains(., 'Вечер')]"));
     //------------------------------------------------------------------------------------------------------------------
-    // Все найденные рейсы в результатах поиска (для оценки сколько рейсов было найдено вообще)
+    // Все найденные рейсы в результатах поиска ( для оценки сколько рейсов было найдено вообще )
     private String tripsXpath =
             "//article[@class='SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible']";
     //------------------------------------------------------------------------------------------------------------------
