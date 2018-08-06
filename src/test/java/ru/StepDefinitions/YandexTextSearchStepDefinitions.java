@@ -32,24 +32,30 @@ public class YandexTextSearchStepDefinitions
   public void userOpensYandexMainPage()
   {
       yandexMainPage.openYandexMainPage(yandexMainPageUrl);
-    //------------------------------------------------------------------------------------------------------------------
+      //----------------------------------------------------------------------------------------------------------------
       Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(yandexMainPageUrl));
   }
 
   @When("^Пользователь переходит на страницу сервиса 'Яндекс Расписания'$")
     public void userGoesToYandexTimetablesPage()
   {
-    yandexMainPage.goToYandexTimetablesPage();
-    //------------------------------------------------------------------------------------------------------------------
-    Assert.assertTrue("Страница 'Яндекс Расписания' не открылась", url().contains(yandexTimetablesPageUrl));
+      yandexMainPage.goToYandexTimetablesPage();
+      //----------------------------------------------------------------------------------------------------------------
+      Assert.assertTrue("Страница 'Яндекс Расписания' не открылась", url().contains(yandexTimetablesPageUrl));
   }
 
   @Then("^Пользователь осуществляет поиск электричек из пункта \"([^\"]*)\" в пункт \"([^\"]*)\" на \"([^\"]*)\"$")
   public void userSearchesElectricTrains(String from, String to, String when)
   {
-    yandexTimetablesPage.switchToElectricTrain().searchForTimeTable(from, to, when);
-    //------------------------------------------------------------------------------------------------------------------
-      Assert.assertTrue("Страница результатов поиска для сервиса 'Яндекс Расписания' не открылась",
-              url().contains(yandexTimetablesSearchResultsPageUrl));
+      yandexTimetablesPage.switchToElectricTrain().searchForTimeTable(from, to, when);
+      //----------------------------------------------------------------------------------------------------------------
+        Assert.assertTrue("Страница результатов поиска для сервиса 'Яндекс Расписания' не открылась",
+                url().contains(yandexTimetablesSearchResultsPageUrl));
+  }
+
+  @Then("^Пользователь проверяет, что поиск произведен и название таблицы результатов соответствует параметрам поиска$")
+  public void userChecksSearchResults()
+  {
+      //----------------------------------------------------------------------------------------------------------------
   }
 }
