@@ -24,9 +24,19 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     // Заголовок страницы в котором содержится параметр поиска [Когда]
     private SelenideElement dayOfWeek = $(By.xpath("//span[@class='SearchTitle__subtitle']"));
     //------------------------------------------------------------------------------------------------------------------
-    // Блок филтров, раздел [Цены], флажок [до 200 руб.]
+    // Блок фильтров, раздел [Цены], флажок [до 200 руб.]
     private SelenideElement lowerThan200RoublesCheckBox =
             $(By.xpath("//li[@class='CheckList__item CheckList__item_100-200']//span[@class='Checkbox__fakeInput']"));
+    //------------------------------------------------------------------------------------------------------------------
+    // Блок фильтров, раздел [Время], кнопка [День]
+    private SelenideElement day =
+            $(By.xpath("//div[@class='FilterTimeOfDayContent FilterTimeOfDayContent_withOptionProps']//" +
+                    "span[@class='FilterTimeOfDayContent__timeName' and contains(., 'День')]"));
+    //------------------------------------------------------------------------------------------------------------------
+    // Блок фильтров, раздел [Время], кнопка [Вечер]
+    private SelenideElement evening =
+            $(By.xpath("//div[@class='FilterTimeOfDayContent FilterTimeOfDayContent_withOptionProps']//" +
+                    "span[@class='FilterTimeOfDayContent__timeName' and contains(., 'Вечер')]"));
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
@@ -51,5 +61,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     public void storeAllDataAboutTrip()
     {
         lowerThan200RoublesCheckBox.waitUntil(clickable, timeout, polling).click();
+        day.waitUntil(clickable, timeout, polling).click();
+        evening.waitUntil(clickable, timeout, polling).click();
     }
 }
