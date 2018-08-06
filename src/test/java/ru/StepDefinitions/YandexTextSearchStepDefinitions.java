@@ -76,6 +76,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь сохраняет данные о рейсе, который отправляется после полудня и билет на который стоит до 200 руб.$")
   public void userStoresAllDataAboutTrip()
   {
+      yandexTimetablesSearchResultsPage.storeAllDataAboutTrip();
       //----------------------------------------------------------------------------------------------------------------
   }
 }

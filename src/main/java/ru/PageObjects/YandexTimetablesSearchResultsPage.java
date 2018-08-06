@@ -40,4 +40,12 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         fromToNames.shouldHave(text("в " + to));
         dayOfWeek.waitUntil(visible, timeout, polling).shouldHave(text(when));
     }
+
+    /**
+     * Сохраняет данные о рейсе, который отправляется после полудня и билет на который стоит до 200 руб.
+     */
+    public void storeAllDataAboutTrip()
+    {
+
+    }
 }
