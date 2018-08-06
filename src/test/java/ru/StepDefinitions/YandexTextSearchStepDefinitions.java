@@ -22,6 +22,7 @@ public class YandexTextSearchStepDefinitions
   private static final String yandexMainPageUrl = "https://yandex.ru";
   private static final String yandexTimetablesPageUrl = "https://rasp.yandex.ru";
   private static final String yandexTimetablesSearchResultsPageUrl = "https://rasp.yandex.ru/search/suburban/";
+  private static final String yandexTripDataDetailsPageUrl = "https://rasp.yandex.ru/thread/";
   private String fromParameter;
   private String toParameter;
   private String whenParameter;
@@ -86,5 +87,7 @@ public class YandexTextSearchStepDefinitions
   {
       yandexTimetablesSearchResultsPage.printTripDataToConsole();
       //----------------------------------------------------------------------------------------------------------------
+      Assert.assertTrue("Страница с информацией о найденном рейсе не открылась",
+              url().contains(yandexTripDataDetailsPageUrl));
   }
 }
