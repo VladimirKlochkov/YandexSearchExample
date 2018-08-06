@@ -27,14 +27,12 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
      * Методы страницы.
      ******************************************************************************************************************/
     /**
-     * Переключает режим поиска в положение 'Электричка'.
+     * Осуществляет проверку, что поиск произведен и название таблицы результатов соответствует параметрам поиска.
      * @param from пункт отправления
      * @param to пункт назначения
      * @param when день недели или дата в виде строки
-     * @return страница  результатов поиска в сервисе 'Яндекс Расписания'
      */
-    public YandexTimetablesSearchResultsPage checkSearchResultsForKeyWords(String from, String to, String when)
+    public void checkSearchResultsForKeyWords(String from, String to, String when)
     {
-        return this;
     }
 }
