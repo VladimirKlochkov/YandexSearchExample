@@ -121,6 +121,11 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
      */
     public void printTripDataToConsole()
     {
-
+        System.out.println("Данные о ближайшем рейсе:");
+        System.out.println(String.format("Название рейса: %s", tripLink));
+        System.out.println(String.format("Время отправления: %s", tripTimeFrom));
+        System.out.println(String.format("Длительность рейса: %s", duration));
+        System.out.println(String.format("Время прибытия: %s", tripTimeTo));
+        System.out.println(String.format("Стоимость поездки, руб.: %s", tripPriceInRoubles));
     }
 }
