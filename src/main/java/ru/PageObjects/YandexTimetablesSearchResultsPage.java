@@ -74,6 +74,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         int total = trips.size();
         if (total > 0) {
             System.out.println(String.format("Найдено рейсов - %d.", total));
+            SelenideElement trip = trips.get(0);
         }
 
         return total;
