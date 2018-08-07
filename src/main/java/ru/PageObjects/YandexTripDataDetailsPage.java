@@ -24,6 +24,9 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     // Название таблицы [Пункт назначения]
     private SelenideElement tableHeaderToName = $(By.xpath("//h1[@class='b-page-title__title']/span[5]"));
     //------------------------------------------------------------------------------------------------------------------
+    // Полное название рейса в легенде календаря
+    private SelenideElement legendTrip = $(By.xpath("//div[@class='b-page-calendar-legend__trip']/a"));
+    //------------------------------------------------------------------------------------------------------------------
 
 
 
