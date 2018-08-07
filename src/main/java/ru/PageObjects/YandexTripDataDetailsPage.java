@@ -62,9 +62,10 @@ public class YandexTripDataDetailsPage extends YandexMainPage
      * @param duration длительность рейса
      * @param tripTimeTo время прибытия
      ******************************************************************************************************************/
-    public void YandexTripDataDetailsPage(
-            String tripLink, String tripTimeFrom, String duration, String tripTimeTo)
+    YandexTripDataDetailsPage(String tripLink, String tripTimeFrom, String duration, String tripTimeTo)
     {
+        super();
+        //--------------------------------------------------------------------------------------------------------------
         this.tripLink = tripLink;
         this.tripTimeFrom = tripTimeFrom;
         this.duration = duration;

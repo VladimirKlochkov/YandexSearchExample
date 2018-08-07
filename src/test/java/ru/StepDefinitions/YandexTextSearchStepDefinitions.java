@@ -30,7 +30,7 @@ public class YandexTextSearchStepDefinitions
   private YandexMainPage yandexMainPage = new YandexMainPage();
   private YandexTimetablesPage yandexTimetablesPage = new YandexTimetablesPage();
   private YandexTimetablesSearchResultsPage yandexTimetablesSearchResultsPage = new YandexTimetablesSearchResultsPage();
-  private YandexTripDataDetailsPage yandexTripDataDetailsPage = new YandexTripDataDetailsPage();
+  private YandexTripDataDetailsPage yandexTripDataDetailsPage;
 
   /*********************************************************************************************************************
    * Методы класса.
@@ -88,7 +88,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь выводит на консоль данные о рейсе$")
     public void userPrintsTripDataToConsole()
   {
-      yandexTimetablesSearchResultsPage.printTripDataToConsole();
+      yandexTripDataDetailsPage = yandexTimetablesSearchResultsPage.printTripDataToConsole();
       //----------------------------------------------------------------------------------------------------------------
       // Здесь идет вывод отладочной информации, проверка не требуется
   }

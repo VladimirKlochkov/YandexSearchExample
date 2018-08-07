@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$$;
  * Класс для работы со страницей результатов поиска в сервисе 'Яндекс Расписания'
  * ( https://rasp.yandex.ru/search/suburban/ ).
  * Created by Vladimir V. Klochkov on 06.08.2018.
- * Updated by Vladimir V. Klochkov on 06.08.2018.
+ * Updated by Vladimir V. Klochkov on 07.08.2018.
  */
 public class YandexTimetablesSearchResultsPage extends YandexMainPage
 {
@@ -119,7 +119,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
     /**
      * Выводит на консоль данные о рейсе.
      */
-    public void printTripDataToConsole()
+    public YandexTripDataDetailsPage printTripDataToConsole()
     {
         System.out.println("Данные о ближайшем рейсе:");
         System.out.println(String.format("Название рейса          : %s", tripLink));
@@ -127,6 +127,8 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         System.out.println(String.format("Длительность рейса      : %s", duration));
         System.out.println(String.format("Время прибытия          : %s", tripTimeTo));
         System.out.println(String.format("Стоимость поездки, руб. : %s", tripPriceInRoubles));
+
+        return new YandexTripDataDetailsPage(tripLink, tripTimeFrom, duration, tripTimeTo);
     }
 
     /**
