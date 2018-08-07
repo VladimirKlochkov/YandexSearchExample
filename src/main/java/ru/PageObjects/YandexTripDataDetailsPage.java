@@ -10,7 +10,7 @@ import java.util.Hashtable;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
- * Класс для работы со страницей сервиса 'Яндекс Расписания' ( https://rasp.yandex.ru/ ).
+ * Класс для работы со страницей  информации о рейсе ( https://rasp.yandex.ru/thread/ ).
  * Created by Vladimir V. Klochkov on 07.08.2018.
  * Updated by Vladimir V. Klochkov on 07.08.2018.
  */
