@@ -1,10 +1,9 @@
 package ru.PageObjects;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Класс для работы со страницей  информации о рейсе ( https://rasp.yandex.ru/thread/ ).
@@ -29,9 +28,12 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     // Полное название рейса в легенде календаря
     private SelenideElement legendTrip = $(By.xpath("//div[@class='b-page-calendar-legend__trip']/a"));
     //------------------------------------------------------------------------------------------------------------------
-    // Таблица маршрута
-    private ElementsCollection timeTable =
-            $$(By.xpath("//table[@class='b-timetable i-bem b-timetable_js_inited']/tbody/tr"));
+    // Таблица маршрута (общая часть локатора)
+    private String timeTable = "//table[@class='b-timetable i-bem b-timetable_js_inited']/tbody/";
+    //------------------------------------------------------------------------------------------------------------------
+    // Таблица маршрута [Пункт отправления]
+    private SelenideElement timeTableFromName = $(By.xpath(timeTable +
+            "tr[@class='b-timetable__row b-timetable__row_type_start']//a"));
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
