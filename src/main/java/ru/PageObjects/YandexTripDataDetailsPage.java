@@ -51,14 +51,22 @@ public class YandexTripDataDetailsPage extends YandexMainPage
      * Поля страницы.
      ******************************************************************************************************************/
     private String tripLink;           // ссылка с названием рейса
+    private String fromName;           // пункт отправления
     private String tripTimeFrom;       // время отправления
     private String duration;           // длительность рейса
+    private String toName;             // пункт прибытия
     private String tripTimeTo;         // время прибытия
     private String tripPriceInRoubles; // стоимость поездки
 
     /*******************************************************************************************************************
      * Методы страницы.
      ******************************************************************************************************************/
+    public void initControlValues(
+            String tripLink, String fromName, String tripTimeFrom, String duration, String toName, String tripTimeTo)
+    {
+
+    }
+
     /**
      * Проверяет, что данные о рейсе на странице информации полностью соответствуют сохраненным в тесте данным.
      */
