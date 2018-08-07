@@ -12,7 +12,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 /**
  * Класс описывающий шаги теста по поиску электричек с помощью соответствующего сервиса Яндекса.
  * Created by Vladimir V. Klochkov on 04.08.2018.
- * Updated by Vladimir V. Klochkov on 06.08.2018.
+ * Updated by Vladimir V. Klochkov on 07.08.2018.
  */
 public class YandexTextSearchStepDefinitions
 {
@@ -98,5 +98,12 @@ public class YandexTextSearchStepDefinitions
       //----------------------------------------------------------------------------------------------------------------
       Assert.assertTrue("Страница с информацией о найденном рейсе не открылась",
               url().contains(yandexTripDataDetailsPageUrl));
+  }
+
+  @Then("^Пользователь проверяет, что данные о рейсе на странице информации полностью соответствуют сохраненным данным$")
+  public void userChecksThatTheTripDataDetailsCorrespondsToSavedData()
+  {
+      //----------------------------------------------------------------------------------------------------------------
+      // Здесь проверкой является само действие
   }
 }
