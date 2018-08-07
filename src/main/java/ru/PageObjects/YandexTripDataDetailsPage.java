@@ -84,6 +84,7 @@ public class YandexTripDataDetailsPage extends YandexMainPage
         // Проверка данных в названии таблицы
         tableHeaderFromName.waitUntil(visible, timeout, polling).shouldHave(text(fromName));
         tableHeaderToName.waitUntil(visible, timeout, polling).shouldHave(text(toName));
+        System.out.println("Данные в заголовке страницы информации о рейсе соответствуют ожидаемым");
 
         // Проверка данных в первой и последней строках таблицы
         timeTableFromName.waitUntil(visible, timeout, polling).shouldHave(text(fromName));
@@ -91,5 +92,6 @@ public class YandexTripDataDetailsPage extends YandexMainPage
         timeTableToName.waitUntil(visible, timeout, polling).shouldHave(text(toName));
         timeTableToTime.waitUntil(visible, timeout, polling).shouldHave(text(tripTimeTo));
         timeTablePathTime.waitUntil(visible, timeout, polling).shouldHave(text(duration));
+        System.out.println("Данные в таблице страницы информации о рейсе соответствуют ожидаемым");
     }
 }
