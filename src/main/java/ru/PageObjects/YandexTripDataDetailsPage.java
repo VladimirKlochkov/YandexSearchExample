@@ -36,6 +36,14 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     private SelenideElement timeTableFromTime = $(By.xpath(timeTable +
             "tr[@class='b-timetable__row b-timetable__row_type_start']//strong"));
     //------------------------------------------------------------------------------------------------------------------
+    // Таблица маршрута [Пункт прибытия]
+    private SelenideElement timeTableToName = $(By.xpath(timeTable +
+            "tr[@class='b-timetable__row b-timetable__row_position_last b-timetable__row_type_end']//a"));
+    //------------------------------------------------------------------------------------------------------------------
+    // Таблица маршрута [Время прибытия]
+    private SelenideElement timeTableToTime = $(By.xpath(timeTable +
+            "tr[@class='b-timetable__row b-timetable__row_position_last b-timetable__row_type_end']//strong"));
+    //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
      * Методы страницы.
