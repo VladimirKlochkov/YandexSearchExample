@@ -64,7 +64,12 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     public void initControlValues(
             String tripLink, String fromName, String tripTimeFrom, String duration, String toName, String tripTimeTo)
     {
-
+        this.tripLink = tripLink;
+        this.fromName = fromName;
+        this.tripTimeFrom = tripTimeFrom;
+        this.duration = duration;
+        this.toName = toName;
+        this.tripTimeTo = tripTimeTo;
     }
 
     /**
