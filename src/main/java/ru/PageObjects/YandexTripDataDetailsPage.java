@@ -56,7 +56,6 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     private String duration;           // длительность рейса
     private String toName;             // пункт прибытия
     private String tripTimeTo;         // время прибытия
-    private String tripPriceInRoubles; // стоимость поездки
 
     /*******************************************************************************************************************
      * Методы страницы.
