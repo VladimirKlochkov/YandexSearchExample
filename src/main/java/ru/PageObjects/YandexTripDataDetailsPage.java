@@ -2,11 +2,10 @@ package ru.PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
 
 /**
- * Класс для работы со страницей  информации о рейсе ( https://rasp.yandex.ru/thread/ ).
+ * Класс для работы со страницей информации о рейсе ( https://rasp.yandex.ru/thread/ ).
  * Created by Vladimir V. Klochkov on 07.08.2018.
  * Updated by Vladimir V. Klochkov on 07.08.2018.
  */
