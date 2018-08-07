@@ -1,8 +1,10 @@
 package ru.PageObjects;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Класс для работы со страницей  информации о рейсе ( https://rasp.yandex.ru/thread/ ).
@@ -27,21 +29,9 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     // Полное название рейса в легенде календаря
     private SelenideElement legendTrip = $(By.xpath("//div[@class='b-page-calendar-legend__trip']/a"));
     //------------------------------------------------------------------------------------------------------------------
-
-
-
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Пиктограмма открытия календаря для поля [Когда]
-    private SelenideElement datePickerSearchIcon = $(By.xpath("//label[@class='datepicker_search__icon']"));
-    //------------------------------------------------------------------------------------------------------------------
-    // Шаблон для поиска дня недели в открытом календаре по дате
-    private String calendarDay =
-            "//div[(@class='calendar__day' or @class='calendar__day _weekend') and @data-date='%s']";
-    //------------------------------------------------------------------------------------------------------------------
-    // Кнопка [Найти]
-    private SelenideElement searchButton =
-            $(By.xpath("//button[@type='submit']/span[@class='y-button_islet-rasp-search__text']"));
+    // Таблица маршрута
+    private ElementsCollection timeTable =
+            $$(By.xpath("//table[@class='b-timetable i-bem b-timetable_js_inited']/tbody/tr"));
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
