@@ -51,29 +51,23 @@ public class YandexTripDataDetailsPage extends YandexMainPage
      * Поля страницы.
      ******************************************************************************************************************/
     private String tripLink;           // ссылка с названием рейса
-    private String fromName;           // пункт отправления
     private String tripTimeFrom;       // время отправления
     private String duration;           // длительность рейса
-    private String toName;             // пункт прибытия
     private String tripTimeTo;         // время прибытия
 
     /*******************************************************************************************************************
      * Конструктор класса. Отвечает за инициализацию всех полей класса.
      * @param tripLink ссылка с названием рейса
-     * @param fromName пункт отправления
      * @param tripTimeFrom время отправления
      * @param duration длительность рейса
-     * @param toName пункт прибытия
      * @param tripTimeTo время прибытия
      ******************************************************************************************************************/
     public void YandexTripDataDetailsPage(
-            String tripLink, String fromName, String tripTimeFrom, String duration, String toName, String tripTimeTo)
+            String tripLink, String tripTimeFrom, String duration, String tripTimeTo)
     {
         this.tripLink = tripLink;
-        this.fromName = fromName;
         this.tripTimeFrom = tripTimeFrom;
         this.duration = duration;
-        this.toName = toName;
         this.tripTimeTo = tripTimeTo;
     }
 
@@ -82,8 +76,10 @@ public class YandexTripDataDetailsPage extends YandexMainPage
      ******************************************************************************************************************/
     /**
      * Проверяет, что данные о рейсе на странице информации полностью соответствуют сохраненным в тесте данным.
+     * @param fromName пункт отправления
+     * @param toName пункт прибытия
      */
-    public void checkThatTheTripDataDetailsCorrespondsToSavedData()
+    public void checkThatTheTripDataDetailsCorrespondsToSavedData(String fromName, String toName)
     {
     }
 }

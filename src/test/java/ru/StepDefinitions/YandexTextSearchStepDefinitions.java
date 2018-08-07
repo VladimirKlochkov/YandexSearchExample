@@ -105,7 +105,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь проверяет, что данные о рейсе на странице информации полностью соответствуют сохраненным данным$")
   public void userChecksThatTheTripDataDetailsCorrespondsToSavedData()
   {
-      yandexTripDataDetailsPage.checkThatTheTripDataDetailsCorrespondsToSavedData();
+      yandexTripDataDetailsPage.checkThatTheTripDataDetailsCorrespondsToSavedData(fromParameter, toParameter);
       //----------------------------------------------------------------------------------------------------------------
       // Здесь проверкой является само действие
   }
