@@ -7,6 +7,7 @@ import org.junit.Assert;
 import ru.PageObjects.YandexMainPage;
 import ru.PageObjects.YandexTimetablesPage;
 import ru.PageObjects.YandexTimetablesSearchResultsPage;
+import ru.PageObjects.YandexTripDataDetailsPage;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
@@ -29,6 +30,7 @@ public class YandexTextSearchStepDefinitions
   private YandexMainPage yandexMainPage = new YandexMainPage();
   private YandexTimetablesPage yandexTimetablesPage = new YandexTimetablesPage();
   private YandexTimetablesSearchResultsPage yandexTimetablesSearchResultsPage = new YandexTimetablesSearchResultsPage();
+  private YandexTripDataDetailsPage yandexTripDataDetailsPage = new YandexTripDataDetailsPage();
 
   /*********************************************************************************************************************
    * Методы класса.
@@ -103,6 +105,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь проверяет, что данные о рейсе на странице информации полностью соответствуют сохраненным данным$")
   public void userChecksThatTheTripDataDetailsCorrespondsToSavedData()
   {
+      yandexTripDataDetailsPage.checkThatTheTripDataDetailsCorrespondsToSavedData();
       //----------------------------------------------------------------------------------------------------------------
       // Здесь проверкой является само действие
   }
