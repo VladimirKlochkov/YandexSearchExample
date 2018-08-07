@@ -58,9 +58,15 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     private String tripTimeTo;         // время прибытия
 
     /*******************************************************************************************************************
-     * Методы страницы.
+     * Конструктор класса. Отвечает за инициализацию всех полей класса.
+     * @param tripLink ссылка с названием рейса
+     * @param fromName пункт отправления
+     * @param tripTimeFrom время отправления
+     * @param duration длительность рейса
+     * @param toName пункт прибытия
+     * @param tripTimeTo время прибытия
      ******************************************************************************************************************/
-    public void initControlValues(
+    public void YandexTripDataDetailsPage(
             String tripLink, String fromName, String tripTimeFrom, String duration, String toName, String tripTimeTo)
     {
         this.tripLink = tripLink;
@@ -71,6 +77,9 @@ public class YandexTripDataDetailsPage extends YandexMainPage
         this.tripTimeTo = tripTimeTo;
     }
 
+    /*******************************************************************************************************************
+     * Методы страницы.
+     ******************************************************************************************************************/
     /**
      * Проверяет, что данные о рейсе на странице информации полностью соответствуют сохраненным в тесте данным.
      */
