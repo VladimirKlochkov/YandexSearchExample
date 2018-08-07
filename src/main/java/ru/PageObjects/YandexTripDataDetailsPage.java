@@ -15,16 +15,19 @@ public class YandexTripDataDetailsPage extends YandexMainPage
      * Локаторы элементов страницы.
      ******************************************************************************************************************/
     //------------------------------------------------------------------------------------------------------------------
-    // Позиция переключателя [Электричка]
-    private SelenideElement electricTrain =
-            $(By.xpath("//div[@class='header__transport-selector']//label[contains(., 'Электричка')]"));
+    // Название таблицы [Номер рейса]
+    private SelenideElement tableHeaderTrainNo = $(By.xpath("//h1[@class='b-page-title__title']/span[2]"));
     //------------------------------------------------------------------------------------------------------------------
-    // Строка для текстового поиска [Пункт отправления]
-    private SelenideElement fromName =
-            $(By.xpath("//input[@class='station-input_search__control' and @name='fromName']"));
+    // Название таблицы [Пункт отправления]
+    private SelenideElement tableHeaderFromName = $(By.xpath("//h1[@class='b-page-title__title']/span[4]"));
     //------------------------------------------------------------------------------------------------------------------
-    // Строка для текстового поиска [Пункт назначения]
-    private SelenideElement toName = $(By.xpath("//input[@class='station-input_search__control' and @name='toName']"));
+    // Название таблицы [Пункт назначения]
+    private SelenideElement tableHeaderToName = $(By.xpath("//h1[@class='b-page-title__title']/span[5]"));
+    //------------------------------------------------------------------------------------------------------------------
+
+
+
+
     //------------------------------------------------------------------------------------------------------------------
     // Пиктограмма открытия календаря для поля [Когда]
     private SelenideElement datePickerSearchIcon = $(By.xpath("//label[@class='datepicker_search__icon']"));
