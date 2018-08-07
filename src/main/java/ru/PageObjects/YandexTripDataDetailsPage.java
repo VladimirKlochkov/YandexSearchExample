@@ -2,6 +2,8 @@ package ru.PageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
@@ -50,23 +52,20 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     /*******************************************************************************************************************
      * Поля страницы.
      ******************************************************************************************************************/
-    private String tripLink;           // ссылка с названием рейса
     private String tripTimeFrom;       // время отправления
     private String duration;           // длительность рейса
     private String tripTimeTo;         // время прибытия
 
     /*******************************************************************************************************************
      * Конструктор класса. Отвечает за инициализацию всех полей класса.
-     * @param tripLink ссылка с названием рейса
      * @param tripTimeFrom время отправления
      * @param duration длительность рейса
      * @param tripTimeTo время прибытия
      ******************************************************************************************************************/
-    YandexTripDataDetailsPage(String tripLink, String tripTimeFrom, String duration, String tripTimeTo)
+    YandexTripDataDetailsPage(String tripTimeFrom, String duration, String tripTimeTo)
     {
         super();
         //--------------------------------------------------------------------------------------------------------------
-        this.tripLink = tripLink;
         this.tripTimeFrom = tripTimeFrom;
         this.duration = duration;
         this.tripTimeTo = tripTimeTo;
@@ -82,5 +81,15 @@ public class YandexTripDataDetailsPage extends YandexMainPage
      */
     public void checkThatTheTripDataDetailsCorrespondsToSavedData(String fromName, String toName)
     {
+        // Проверка данных в названии таблицы
+        tableHeaderFromName.waitUntil(visible, timeout, polling).shouldHave(text(fromName));
+        tableHeaderToName.waitUntil(visible, timeout, polling).shouldHave(text(toName));
+
+        // Проверка данных в первой и последней строках таблицы
+        timeTableFromName.waitUntil(visible, timeout, polling).shouldHave(text(fromName));
+        timeTableFromTime.waitUntil(visible, timeout, polling).shouldHave(text(tripTimeFrom));
+        timeTableToName.waitUntil(visible, timeout, polling).shouldHave(text(toName));
+        timeTableToTime.waitUntil(visible, timeout, polling).shouldHave(text(tripTimeTo));
+        timeTablePathTime.waitUntil(visible, timeout, polling).shouldHave(text(duration));
     }
 }
