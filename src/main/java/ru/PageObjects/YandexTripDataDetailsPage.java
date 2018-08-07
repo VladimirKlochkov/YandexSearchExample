@@ -16,9 +16,6 @@ public class YandexTripDataDetailsPage extends YandexMainPage
      * Локаторы элементов страницы.
      ******************************************************************************************************************/
     //------------------------------------------------------------------------------------------------------------------
-    // Название таблицы [Номер рейса]
-    private SelenideElement tableHeaderTrainNo = $(By.xpath("//h1[@class='b-page-title__title']/span[2]"));
-    //------------------------------------------------------------------------------------------------------------------
     // Название таблицы [Пункт отправления]
     private SelenideElement tableHeaderFromName = $(By.xpath("//h1[@class='b-page-title__title']/span[4]"));
     //------------------------------------------------------------------------------------------------------------------
@@ -43,6 +40,12 @@ public class YandexTripDataDetailsPage extends YandexMainPage
     // Таблица маршрута [Время прибытия]
     private SelenideElement timeTableToTime = $(By.xpath(timeTable +
             "tr[@class='b-timetable__row b-timetable__row_position_last b-timetable__row_type_end']//strong"));
+    //------------------------------------------------------------------------------------------------------------------
+    // Таблица маршрута [Время в пути]
+    private SelenideElement timeTablePathTime = $(By.xpath(timeTable +
+            "tr[@class='b-timetable__row b-timetable__row_position_last b-timetable__row_type_end']/" +
+            "td[@class='b-timetable__cell b-timetable__cell_type_time b-timetable__cell_position_last']/" +
+            "div[@class='b-timetable__pathtime']"));
     //------------------------------------------------------------------------------------------------------------------
 
     /*******************************************************************************************************************
