@@ -54,6 +54,15 @@ public class YandexMainPage
     }
 
     /**
+     * Возвращает курс рубля к доллару в виде строки.
+     * @return курс рубля к доллару в виде строки
+     */
+    public String getUsdCourse()
+    {
+        return courses.get(0).waitUntil(visible, timeout, polling).getText();
+    }
+
+    /**
      *  Осуществляет переход на страницу сервиса 'Яндекс Расписания'.
      */
     public void goToYandexTimetablesPage()
