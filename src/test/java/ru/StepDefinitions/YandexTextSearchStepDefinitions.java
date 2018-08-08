@@ -13,7 +13,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 /**
  * Класс описывающий шаги теста по поиску электричек с помощью соответствующего сервиса Яндекса.
  * Created by Vladimir V. Klochkov on 04.08.2018.
- * Updated by Vladimir V. Klochkov on 07.08.2018.
+ * Updated by Vladimir V. Klochkov on 08.08.2018.
  */
 public class YandexTextSearchStepDefinitions
 {
@@ -27,6 +27,7 @@ public class YandexTextSearchStepDefinitions
   private String fromParameter;
   private String toParameter;
   private String whenParameter;
+  private String courseParameter;
   private YandexMainPage yandexMainPage = new YandexMainPage();
   private YandexTimetablesPage yandexTimetablesPage = new YandexTimetablesPage();
   private YandexTimetablesSearchResultsPage yandexTimetablesSearchResultsPage = new YandexTimetablesSearchResultsPage();
@@ -45,7 +46,7 @@ public class YandexTextSearchStepDefinitions
   @Given("^Пользователь открывает страницу 'yandex.ru'$")
   public void userOpensYandexMainPage()
   {
-      yandexMainPage.openYandexMainPage(yandexMainPageUrl);
+      courseParameter = yandexMainPage.openYandexMainPage(yandexMainPageUrl).getUsdCourse();
       //----------------------------------------------------------------------------------------------------------------
       Assert.assertTrue("Главная страница Яндекса не открылась", url().contains(yandexMainPageUrl));
   }
