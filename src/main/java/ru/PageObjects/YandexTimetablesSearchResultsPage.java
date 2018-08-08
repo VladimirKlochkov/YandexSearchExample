@@ -133,7 +133,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         System.out.println(String.format("Время прибытия          : %s", tripTimeTo));
         System.out.println(String.format("Стоимость поездки, руб. : %s", tripPriceInRoubles));
         System.out.println(String.format("Курс валюты USD -> RUR. : %s", course));
-        System.out.println(String.format("Стоимость поездки, USD. : %s", inUsd));
+        System.out.println(String.format("Стоимость поездки, USD. : %s", String.format("%1$,.2f", inUsd)));
 
         return new YandexTripDataDetailsPage(tripTimeFrom, duration, tripTimeTo);
     }
