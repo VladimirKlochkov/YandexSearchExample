@@ -1,22 +1,27 @@
 package ru.PageObjects;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
  * Класс для работы с главной страницей Яндекса ( https://yandex.ru/ ).
  * Created by Vladimir V. Klochkov on 04.08.2018.
- * Updated by Vladimir V. Klochkov on 06.08.2018.
+ * Updated by Vladimir V. Klochkov on 08.08.2018.
  */
 public class YandexMainPage
 {
     /*******************************************************************************************************************
      * Локаторы элементов страницы.
      ******************************************************************************************************************/
+    //------------------------------------------------------------------------------------------------------------------
+    // Курсы валют на главной странице Яндекса
+    private ElementsCollection courses = $$(By.xpath("//span[@class='inline-stocks__value_inner']"));
     //------------------------------------------------------------------------------------------------------------------
     // Строка для текстового поиска на главной странице Яндекса
     private SelenideElement yandexMainSearchString = $(By.id("text"));
