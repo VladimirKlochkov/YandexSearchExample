@@ -89,7 +89,7 @@ public class YandexTextSearchStepDefinitions
   @Then("^Пользователь выводит на консоль данные о рейсе$")
     public void userPrintsTripDataToConsole()
   {
-      yandexTripDataDetailsPage = yandexTimetablesSearchResultsPage.printTripDataToConsole();
+      yandexTripDataDetailsPage = yandexTimetablesSearchResultsPage.printTripDataToConsole(courseParameter);
       //----------------------------------------------------------------------------------------------------------------
       // Здесь идет вывод отладочной информации, проверка не требуется
   }
