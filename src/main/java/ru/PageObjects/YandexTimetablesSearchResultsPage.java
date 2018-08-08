@@ -122,6 +122,10 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
      */
     public YandexTripDataDetailsPage printTripDataToConsole(String course)
     {
+        Double inRoubles = Double.parseDouble(tripPriceInRoubles.replace(" Р", ".00"));
+        Double courseRate = Double.parseDouble(course.replace(",", "."));
+        Double inUsd = inRoubles / courseRate;
+
         System.out.println("Данные о ближайшем рейсе:");
         System.out.println(String.format("Название рейса          : %s", tripLink));
         System.out.println(String.format("Время отправления       : %s", tripTimeFrom));
@@ -129,6 +133,7 @@ public class YandexTimetablesSearchResultsPage extends YandexMainPage
         System.out.println(String.format("Время прибытия          : %s", tripTimeTo));
         System.out.println(String.format("Стоимость поездки, руб. : %s", tripPriceInRoubles));
         System.out.println(String.format("Курс валюты USD -> RUR  : %s", course));
+        System.out.println(String.format("Стоимость поездки, USD. : %d", inUsd));
 
         return new YandexTripDataDetailsPage(tripTimeFrom, duration, tripTimeTo);
     }
